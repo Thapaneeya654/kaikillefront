@@ -3,6 +3,10 @@ import Avatar from "../components/common/Avatar";
 import Navigatepage from "../components/home/Navigatepage";
 import { getAccessToken } from "../utils/localstorage";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../contexts/auth-context";
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const initialValue = {
   firstName: "",
@@ -13,10 +17,16 @@ const initialValue = {
 };
 
 function Editinfouser() {
+  const navigate = useNavigate();
+  //const { user } = useAuth();
   const [input, setInput] = useState(initialValue);
 
   const handleChange = (e) => {
-    setInput({ ...input, [e.target.name]: e.target.value });
+    setInput((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+    // setInput({ ...input, [e.target.name]: e.target.value });
     console.log(input);
   };
 
@@ -27,16 +37,17 @@ function Editinfouser() {
       await axios.put("http://localhost:8888/auth/update", input, {
         headers: { Authorization: `Bearer ${token}` },
       });
+      navigate("/homepage");
     } catch (error) {
       console.log(error);
     }
   };
-
   return (
     <div>
       <div className="flex flex-row gap-2">
         <div className="card w-96 bg-base-100 shadow-xl ">
           <Avatar />
+
           <div className="drawer lg:drawer-open">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content flex flex-col items-center justify-center">
@@ -57,7 +68,7 @@ function Editinfouser() {
             </div>
             <div className="collapse bg-base-100 text-left">
               <input type="checkbox" className="peer" />
-              <div className="collapse-title bg-base-300 text-primary-content [input:checked~&]:bg-primary [input:checked~&]:text-grey font-bold">
+              <div className="collapse-title bg-base-300 text-black [input:checked~&]:bg-primary [input:checked~&]:text-grey font-bold">
                 1.Firstname
               </div>
               <div className="collapse-content bg-base-300 text-primary-content [input:checked~&]:bg-base-300 [input:checked~&]:text-black">
@@ -73,7 +84,7 @@ function Editinfouser() {
             </div>
             <div className="collapse bg-base-100 text-left">
               <input type="checkbox" className="peer" />
-              <div className="collapse-title bg-base-300 text-primary-content [input:checked~&]:bg-primary [input:checked~&]:text-grey font-bold">
+              <div className="collapse-title bg-base-300 text-black [input:checked~&]:bg-primary [input:checked~&]:text-grey font-bold">
                 2.Lastname
               </div>
               <div className="collapse-content bg-base-300 text-primary-content [input:checked~&]:bg-base-300 [input:checked~&]:text-black">
@@ -87,7 +98,7 @@ function Editinfouser() {
                 />
               </div>
             </div>
-            <div className="collapse bg-base-100 text-left">
+            {/* <div className="collapse bg-base-100 text-left">
               <input type="checkbox" className="peer" />
               <div className="collapse-title bg-base-300 text-primary-content [input:checked~&]:bg-primary [input:checked~&]:text-grey font-bold">
                 3.Email Address
@@ -102,11 +113,11 @@ function Editinfouser() {
                   onChange={handleChange}
                 />
               </div>
-            </div>
+            </div> */}
             <div className="collapse bg-base-100 text-left">
               <input type="checkbox" className="peer" />
-              <div className="collapse-title bg-base-300 text-primary-content [input:checked~&]:bg-primary [input:checked~&]:text-grey font-bold">
-                4.Telephone
+              <div className="collapse-title bg-base-300 text-black [input:checked~&]:bg-primary [input:checked~&]:text-grey font-bold">
+                3.Telephone
               </div>
               <div className="collapse-content bg-base-300 text-primary-content [input:checked~&]:bg-base-300 [input:checked~&]:text-black">
                 <input
@@ -119,10 +130,10 @@ function Editinfouser() {
                 />
               </div>
             </div>
-            <div className="collapse bg-base-100 text-left">
+            {/* <div className="collapse bg-base-100 text-left">
               <input type="checkbox" className="peer" />
-              <div className="collapse-title bg-base-300 text-primary-content [input:checked~&]:bg-primary [input:checked~&]:text-grey font-bold">
-                5.Work or School
+              <div className="collapse-title bg-base-300 text-black [input:checked~&]:bg-primary [input:checked~&]:text-grey font-bold">
+                4.Work or School
               </div>
               <div className="collapse-content bg-base-300 text-primary-content [input:checked~&]:bg-base-300 [input:checked~&]:text-black">
                 <input
@@ -134,10 +145,12 @@ function Editinfouser() {
                   onChange={handleChange}
                 />
               </div>
-            </div>
+            </div> */}
             <div class="h-24 grid grid-cols-2 gap-10 content-center">
               <button className="btn btn-neutral">Save</button>
-              {/* <button className="btn btn-base-300">Cancle</button> */}
+              <Link to={"/homepage"} className="btn btn-base-300">
+                Cancle
+              </Link>
             </div>
           </form>
         </div>
@@ -147,44 +160,3 @@ function Editinfouser() {
 }
 
 export default Editinfouser;
-
-{
-  /* <div className="collapse bg-base-100 text-left">
-              <input type="checkbox" className="peer" />
-              <div className="collapse-title bg-base-300 text-primary-content [input:checked~&]:bg-primary [input:checked~&]:text-grey font-bold">
-                6.Persistent Identifier
-              </div>
-              <div className="collapse-content bg-base-300 text-primary-content [input:checked~&]:bg-base-300 [input:checked~&]:text-black">
-                <input
-                  type="text"
-                  placeholder="Persistent Identifier"
-                  className="input input-bordered input-accent w-full max-w-xs"
-                />
-              </div>
-            </div>
-            <div className="collapse bg-base-100 text-left">
-              <input type="checkbox" className="peer" />
-              <div className="collapse-title bg-base-300 text-primary-content [input:checked~&]:bg-primary [input:checked~&]:text-grey font-bold">
-                7.Password
-              </div>
-              <div className="collapse-content bg-base-300 text-primary-content [input:checked~&]:bg-base-300 [input:checked~&]:text-black">
-                <div className="grid">
-                  <input
-                    type="password"
-                    placeholder="Current Password"
-                    className="input input-bordered input-accent w-full max-w-xs"
-                  />
-                  <input
-                    type="password"
-                    placeholder="New Password"
-                    className="input input-bordered input-accent w-full max-w-xs"
-                  />
-                  <input
-                    type="password"
-                    placeholder="Confirm Password"
-                    className="input input-bordered input-accent w-full max-w-xs"
-                  />
-                </div>
-              </div>
-            </div> */
-}

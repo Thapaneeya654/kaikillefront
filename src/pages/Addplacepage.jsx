@@ -4,6 +4,7 @@ import Navigatepage from "../components/home/Navigatepage";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { getAccessToken } from "../utils/localstorage";
+import { Link } from "react-router-dom";
 
 function Addplace() {
   const navigate = useNavigate();
@@ -64,27 +65,11 @@ function Addplace() {
               <p>It takes a miracle to find someplace.</p>
             </div>
             <form onSubmit={handleSubmit}>
-              <div>
-                <div className="form-control w-full max-w-xs">
-                  <label className="label">
-                    <span className="label-text"> </span>
-                    <span className="label-text-alt"> </span>
-                  </label>
-                  <input
-                    type="file"
-                    className="file-input file-input-bordered w-full max-w-xs"
-                  />
-                  <label className="label">
-                    <span className="label-text-alt"> </span>
-                    <span className="label-text-alt"> </span>
-                  </label>
-                </div>
-              </div>
               <div className="text-start flex flex-col w-full gap-2">
                 <div>
                   <div className="collapse bg-base-100 text-left">
                     <input type="checkbox" className="peer" />
-                    <div className="collapse-title bg-base-300 text-primary-content [input:checked~&]:bg-base-600 [input:checked~&]:text-grey font-bold">
+                    <div className="collapse-title bg-base-300 text-black [input:checked~&]:bg-base-600 [input:checked~&]:text-grey font-bold">
                       1.Name Place
                     </div>
                     <div className="collapse-content bg-base-300 text-primary-content [input:checked~&]:bg-base-200 [input:checked~&]:text-black">
@@ -98,29 +83,11 @@ function Addplace() {
                       />
                     </div>
                   </div>
-                  {/* <div
-                    tabIndex={0}
-                    className="collapse collapse-arrow border border-base-300 bg-base-200"
-                  >
-                    <div className="collapse-title font-medium">
-                      1.Name Place
-                    </div>
-                    <div className="collapse-content">
-                      <input
-                        type="text"
-                        placeholder="Name Place"
-                        className="input input-bordered w-full max-w-xs"
-                        name="namePlace"
-                        value={addplaceInput.namePlace}
-                        onChange={handleInput}
-                      />
-                    </div>
-                  </div> */}
                 </div>
                 <div>
                   <div className="collapse bg-base-100 text-left">
                     <input type="checkbox" className="peer" />
-                    <div className="collapse-title bg-base-300 text-primary-content [input:checked~&]:bg-base-600 [input:checked~&]:text-grey font-bold">
+                    <div className="collapse-title bg-base-300 text-black [input:checked~&]:bg-base-600 [input:checked~&]:text-grey font-bold">
                       2.Province Place
                     </div>
                     <div className="collapse-content bg-base-300 text-primary-content [input:checked~&]:bg-base-200 [input:checked~&]:text-black">
@@ -134,29 +101,11 @@ function Addplace() {
                       />
                     </div>
                   </div>
-                  {/* <div
-                    tabIndex={0}
-                    className="collapse collapse-arrow border border-base-300 bg-base-200"
-                  >
-                    <div className="collapse-title font-medium">
-                      2.Province Place
-                    </div>
-                    <div className="collapse-content">
-                      <input
-                        type="text"
-                        placeholder="Province Place"
-                        className="input input-bordered w-full max-w-xs"
-                        name="provincePlace"
-                        value={addplaceInput.provincePlace}
-                        onChange={handleInput}
-                      />
-                    </div>
-                  </div> */}
                 </div>
                 <div>
                   <div className="collapse bg-base-100 text-left">
                     <input type="checkbox" className="peer" />
-                    <div className="collapse-title bg-base-300 text-primary-content [input:checked~&]:bg-base-600 [input:checked~&]:text-grey font-bold">
+                    <div className="collapse-title bg-base-300 text-black [input:checked~&]:bg-base-600 [input:checked~&]:text-grey font-bold">
                       3.District Place
                     </div>
                     <div className="collapse-content bg-base-300 text-primary-content [input:checked~&]:bg-base-200 [input:checked~&]:text-black">
@@ -170,29 +119,11 @@ function Addplace() {
                       />
                     </div>
                   </div>
-                  {/* <div
-                    tabIndex={0}
-                    className="collapse collapse-arrow border border-base-300 bg-base-200"
-                  >
-                    <div className="collapse-title font-medium">
-                      3.District Place
-                    </div>
-                    <div className="collapse-content">
-                      <input
-                        type="text"
-                        placeholder="District Place"
-                        className="input input-bordered w-full max-w-xs"
-                        name="districtPlace"
-                        value={addplaceInput.districtPlace}
-                        onChange={handleInput}
-                      />
-                    </div>
-                  </div> */}
                 </div>
                 <div>
                   <div className="collapse bg-base-100 text-left">
                     <input type="checkbox" className="peer" />
-                    <div className="collapse-title bg-base-300 text-primary-content [input:checked~&]:bg-base-600 [input:checked~&]:text-grey font-bold">
+                    <div className="collapse-title bg-base-300 text-black [input:checked~&]:bg-base-600 [input:checked~&]:text-grey font-bold">
                       4.Details Place
                     </div>
                     <div className="collapse-content bg-base-300 text-primary-content [input:checked~&]:bg-base-200 [input:checked~&]:text-black">
@@ -206,30 +137,15 @@ function Addplace() {
                       />
                     </div>
                   </div>
-                  {/* <div
-                    tabIndex={0}
-                    className="collapse collapse-arrow border border-base-300 bg-base-200"
-                  >
-                    <div className="collapse-title font-medium">
-                      4.Details Place
-                    </div>
-                    <div className="collapse-content">
-                      <input
-                        type="text"
-                        placeholder="Type here"
-                        className="input input-bordered w-full max-w-xs"
-                        name="detailsPlace"
-                        value={addplaceInput.detailsPlace}
-                        onChange={handleInput}
-                      />
-                    </div>
-                  </div> */}
                 </div>
               </div>
-              <div className="card-actions justify-center mt-2">
+              <div class="h-24 grid grid-cols-2 gap-10 content-center">
                 <button className="btn capitalize btn-neutral">
                   Create Place
                 </button>
+                <Link to={"/homepage"} className="btn btn-base-300">
+                  Cancle
+                </Link>
               </div>
             </form>
           </div>

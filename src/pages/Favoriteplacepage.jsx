@@ -1,7 +1,7 @@
 import React from "react";
 import Avatar from "../components/common/Avatar";
 import Navigatepage from "../components/home/Navigatepage";
-import Cardplace from "../components/features/button/Cardplace";
+import Cardplace from "../components/features/place/Cardplace";
 
 function Favoriteplace() {
   return (

@@ -12,11 +12,11 @@ export default function Navigatepage() {
         <Link to={"/homepage"}>
           <li className="hover:bg-warning p-4 rounded-lg">Home</li>
         </Link>
-        <Link to={"/favoriteplace"}>
+        {/* <Link to={"/favoriteplace"}>
           <li className="hover:bg-warning p-4 rounded-lg">
             Find your saved places
           </li>
-        </Link>
+        </Link> */}
         <Link to={"/rankingplace"}>
           <li className="hover:bg-warning p-4 rounded-lg">
             Your shared places

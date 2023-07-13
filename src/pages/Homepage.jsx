@@ -1,9 +1,27 @@
 import React from "react";
 import Avatar from "../components/common/Avatar";
 import Navigatepage from "../components/home/Navigatepage";
-import Cardplace from "../components/features/button/Cardplace";
+import Cardplaceall from "../components/features/place/Cardplaceall";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 function Homepage() {
+  const [place, setPlace] = useState([]);
+
+  useEffect(() => {
+    try {
+      const getPlace = async () => {
+        const result = await axios.get("http://localhost:8888/place/showplace");
+        console.log(result.data);
+        setPlace(result.data);
+      };
+      getPlace();
+    } catch (err) {
+      console.log(err);
+    }
+  }, []);
+
+  console.log(place);
   return (
     <div>
       <div className="flex flex-row gap-2">
@@ -22,7 +40,10 @@ function Homepage() {
         <div className="basis-full">
           <div className="flex flex-col w-full">
             <div className="h-20 card rounded-box place-items-center flex items-start justify-center">
-              <div className="flex flex-row items-center font-bold  ">
+              <div>
+                <p>Hello,welcome to Kaikille</p>
+              </div>
+              {/* <div className="flex flex-row items-center font-bold  ">
                 <p className="p-2">Nearby Search</p>
                 <select className="select select-bordered">
                   <option disabled selected>
@@ -34,17 +55,22 @@ function Homepage() {
                   <option>Planet of the Apes</option>
                   <option>Star Trek</option>
                 </select>
-              </div>
+              </div> */}
             </div>
             <div className="divider font-bold text-lg">
               <p>It takes a miracle to find someone.</p>
             </div>
             <div className="rounded-box grid grid-cols-3 gap-2">
-              <Cardplace />
-              <Cardplace />
-              <Cardplace />
-              <Cardplace />
-              <Cardplace />
+              {place.map((el) => (
+                <Cardplaceall
+                  namePlace={el.namePlace}
+                  detailsPlace={el.detailsPlace}
+                  districtPlace={el.districtPlace}
+                  provincePlace={el.provincePlace}
+                  id={el.id}
+                  setPlace={setPlace}
+                />
+              ))}
             </div>
           </div>
         </div>

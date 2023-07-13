@@ -1,10 +1,7 @@
-// const { useAuth } = require("../../contexts/auth-context");
 import { useAuth } from "../../contexts/auth-context";
 import { Link } from "react-router-dom";
-//import { useNavigate } from "react-router-dom";
 
 export default function Header() {
-  const navigate = useNavigate();
   const { user } = useAuth();
   return (
     <div>

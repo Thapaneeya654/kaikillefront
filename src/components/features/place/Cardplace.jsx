@@ -44,41 +44,9 @@ export default function Cardplace({
             detailsPlace:{detailsPlace}
           </p>
         </div>
-        {/* <Link to={`/detailplace/${id}`}> */}
         <button className="btn btn-neutral rounded-md" onClick={handleDelete}>
           Delete
         </button>
-        {/* </Link> */}
-        <div>
-          <div className="rating">
-            <input
-              type="radio"
-              name="rating-4"
-              className="mask mask-star-2 bg-secondary"
-            />
-            <input
-              type="radio"
-              name="rating-4"
-              className="mask mask-star-2 bg-secondary"
-              checked
-            />
-            <input
-              type="radio"
-              name="rating-4"
-              className="mask mask-star-2 bg-secondary"
-            />
-            <input
-              type="radio"
-              name="rating-4"
-              className="mask mask-star-2 bg-secondary"
-            />
-            <input
-              type="radio"
-              name="rating-4"
-              className="mask mask-star-2 bg-secondary"
-            />
-          </div>
-        </div>
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Avatar from "../components/common/Avatar";
 import Navigatepage from "../components/home/Navigatepage";
-import Cardplace from "../components/features/button/Cardplace";
+import Cardplace from "../components/features/place/Cardplace";
 import axios from "axios";
 import { getAccessToken } from "../utils/localstorage";
 
@@ -24,15 +24,6 @@ function Rankingplace() {
   }, []);
 
   console.log(place);
-
-  //   useEffect(() => {
-
-  //     const token = getAccessToken();
-  //     axios.get("http://localhost:8888/place/ranking", {
-  //       headers: { Authorization: `Bearer ${token}` },
-  //     }).then(rs => console.log(rs.data)).catch(err=>console.log(err))
-
-  // }, []);
 
   return (
     <div>
