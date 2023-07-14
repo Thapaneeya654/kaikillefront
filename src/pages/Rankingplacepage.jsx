@@ -43,7 +43,7 @@ function Rankingplace() {
         <div className="basis-full">
           <div className="flex flex-col w-full">
             <div className="h-20 card rounded-box place-items-center flex items-start justify-center">
-              HELLO Welcome to List your places [Ranking place]
+              HELLO Welcome to Your shared places [Ranking place]
             </div>
             <div className="divider font-bold text-lg">
               <p>It takes a miracle to find someplace.</p>

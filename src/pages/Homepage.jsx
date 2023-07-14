@@ -43,19 +43,6 @@ function Homepage() {
               <div>
                 <p>Hello,welcome to Kaikille</p>
               </div>
-              {/* <div className="flex flex-row items-center font-bold  ">
-                <p className="p-2">Nearby Search</p>
-                <select className="select select-bordered">
-                  <option disabled selected>
-                    Pick one
-                  </option>
-                  <option>Star Wars</option>
-                  <option>Harry Potter</option>
-                  <option>Lord of the Rings</option>
-                  <option>Planet of the Apes</option>
-                  <option>Star Trek</option>
-                </select>
-              </div> */}
             </div>
             <div className="divider font-bold text-lg">
               <p>It takes a miracle to find someone.</p>

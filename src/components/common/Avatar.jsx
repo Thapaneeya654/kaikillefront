@@ -1,7 +1,7 @@
 import React from "react";
 import { useAuth } from "../../contexts/auth-context";
 
-export default function Avatar() {
+function Avatar() {
   const { user } = useAuth();
   console.log(user);
   return (
@@ -15,3 +15,5 @@ export default function Avatar() {
     </div>
   );
 }
+
+export default Avatar;
