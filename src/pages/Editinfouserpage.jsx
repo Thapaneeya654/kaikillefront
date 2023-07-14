@@ -8,17 +8,19 @@ import { useAuth } from "../contexts/auth-context";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const initialValue = {
-  firstName: "",
-  lastName: "",
-  email: "",
-  Tel: "",
-  workOrSchool: "",
-};
-
 function Editinfouser() {
   const navigate = useNavigate();
   //const { user } = useAuth();
+
+  const { fetchMe, user } = useAuth();
+
+  const initialValue = {
+    firstName: user?.firstName ? user.firstName : "",
+    lastName: user?.lastName ? user.lastName : "",
+    //email: "",
+    Tel: user?.Tel ? user.Tel : "",
+    //workOrSchool: "",
+  };
   const [input, setInput] = useState(initialValue);
 
   const handleChange = (e) => {
@@ -27,6 +29,7 @@ function Editinfouser() {
       [e.target.name]: e.target.value,
     }));
     // setInput({ ...input, [e.target.name]: e.target.value });
+    fetchMe();
     console.log(input);
   };
 
@@ -78,7 +81,7 @@ function Editinfouser() {
                   className="input input-bordered input-accent w-full max-w-xs"
                   name="firstName"
                   value={input.firstName}
-                  onChange={handleChange}
+                  onChange={(e) => handleChange(e)}
                 />
               </div>
             </div>
@@ -94,7 +97,7 @@ function Editinfouser() {
                   className="input input-bordered input-accent w-full max-w-xs"
                   name="lastName"
                   value={input.lastName}
-                  onChange={handleChange}
+                  onChange={(e) => handleChange(e)}
                 />
               </div>
             </div>
@@ -126,7 +129,7 @@ function Editinfouser() {
                   className="input input-bordered input-accent w-full max-w-xs"
                   name="Tel"
                   value={input.Tel}
-                  onChange={handleChange}
+                  onChange={(e) => handleChange(e)}
                 />
               </div>
             </div>

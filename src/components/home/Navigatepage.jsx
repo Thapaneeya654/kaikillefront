@@ -25,7 +25,7 @@ export default function Navigatepage() {
         <Link to={"/editinfomation"}>
           <li className="hover:bg-warning p-4 rounded-lg">Edit profile</li>
         </Link>
-        <Link to={"/logout"}>
+        <Link to={"/"}>
           <li
             className="hover:bg-warning p-4 rounded-lg"
             onClick={() => {

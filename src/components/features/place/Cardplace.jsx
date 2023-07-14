@@ -22,7 +22,6 @@ export default function Cardplace({
         const result = await axios.get("http://localhost:8888/place/ranking", {
           headers: { Authorization: `Bearer ${token}` },
         });
-        // console.log(result.data);
         setPlace(result.data);
       };
       getPlace();

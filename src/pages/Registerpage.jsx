@@ -44,7 +44,7 @@ function Register() {
       );
       console.log(response.data);
       setAccessToken(response.data.accessToken);
-      navigate("/logout");
+      navigate("/");
     } catch (error) {
       console.log(error);
     }

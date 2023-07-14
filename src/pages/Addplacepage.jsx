@@ -16,9 +16,10 @@ function Addplace() {
   });
 
   const handleInput = (event) => {
-    console.log(event);
-    console.log(event.target.name);
-    console.log(event.target.value);
+    //console.log(event);
+    console.log(addplaceInput);
+    //console.log(event.target.name);
+    //console.log(event.target.value);
     setAddplaceInput((prev) => ({
       ...prev,
       [event.target.name]: event.target.value,
